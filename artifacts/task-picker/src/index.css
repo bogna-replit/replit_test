@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --font-sans: var(--app-font-sans);
+  --font-display: var(--app-font-display);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 16px);
+  --radius-full: 9999px;
+}
+
+:root {
+  --app-font-sans: 'Nunito', sans-serif;
+  --app-font-display: 'Fredoka', sans-serif;
+  
+  --radius: 1.5rem; /* Very bubbly and rounded */
+
+  /* Playful, Warm Light Mode Theme */
+  --background: 42 100% 96%; /* #FFF8E7 - Warm cream */
+  --foreground: 33 29% 27%;  /* #5A4D41 - Soft brown instead of harsh black */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 33 29% 27%;
+  --card-border: 42 50% 90%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 33 29% 27%;
+  --popover-border: 42 50% 90%;
+
+  --primary: 348 100% 65%; /* #FF4D70 - Playful Coral/Pink */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 43 100% 62%; /* #FFD13B - Cheerful Yellow */
+  --secondary-foreground: 33 29% 27%;
+  
+  --muted: 42 50% 90%;
+  --muted-foreground: 33 15% 50%;
+  
+  --accent: 278 64% 59%; /* #9D4EDD - Fun Purple */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 42 50% 85%;
+  --input: 42 50% 90%;
+  --ring: 348 100% 65%;
+  
+  --shadow-sm: 0 2px 8px -2px rgba(255, 77, 112, 0.15);
+  --shadow-md: 0 4px 12px -4px rgba(255, 77, 112, 0.2);
+  --shadow-lg: 0 12px 24px -8px rgba(255, 77, 112, 0.25);
+  --shadow-xl: 0 20px 40px -12px rgba(255, 77, 112, 0.3);
+}
+
+.dark {
+  /* Playful, Warm Dark Mode Theme (Deep purples and warm accents) */
+  --background: 278 40% 15%; /* Deep warm purple */
+  --foreground: 42 100% 96%;
+  
+  --card: 278 35% 20%;
+  --card-foreground: 42 100% 96%;
+  --card-border: 278 30% 30%;
+  
+  --popover: 278 35% 20%;
+  --popover-foreground: 42 100% 96%;
+  --popover-border: 278 30% 30%;
+
+  --primary: 348 100% 65%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 43 100% 62%;
+  --secondary-foreground: 33 29% 27%;
+  
+  --muted: 278 30% 30%;
+  --muted-foreground: 278 20% 70%;
+  
+  --accent: 190 90% 50%; /* Cyan accent for contrast in dark mode */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 278 30% 30%;
+  --input: 278 30% 30%;
+  --ring: 348 100% 65%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--app-font-display);
+    @apply font-bold tracking-tight;
+  }
+}
