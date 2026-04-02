@@ -1,4 +1,5 @@
 import os
+import random
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -27,6 +28,11 @@ def health_check():
     return HealthStatus(status="ok")
 
 
+PEOPLE = ["Bogna", "Dominik", "Javi", "Marcin"]
+
+EMOJIS = ["🎉🏆✨🎯🦸‍♀️", "🚀⭐🎯💪🏆", "🌟🎊✨🦁🎉", "🏅💡🎯🔥🌟"]
+
 @app.get("/api/pick-person", response_model=PickedPerson)
 def pick_person():
-    return PickedPerson(name="Bogna", emojis="🎉🏆✨🎯🦸‍♀️")
+    idx = random.randrange(len(PEOPLE))
+    return PickedPerson(name=PEOPLE[idx], emojis=EMOJIS[idx])
