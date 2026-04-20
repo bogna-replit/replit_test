@@ -28,7 +28,7 @@ def health_check():
     return HealthStatus(status="ok")
 
 
-PEOPLE = ["Bogna", "Dominik", "Javi", "Marcin"]
+PEOPLE = ["Bogna", "Dominik", "Javi", "Marita", "Daniel", "Adrian", "Anca", "Felix", "Goncalo", "Bruno", "Janine", "Julian"]
 
 EMOJIS = ["🎉🏆✨🎯🦸‍♀️", "🚀⭐🎯💪🏆", "🌟🎊✨🦁🎉", "🏅💡🎯🔥🌟"]
 
