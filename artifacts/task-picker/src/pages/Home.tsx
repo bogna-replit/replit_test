@@ -80,9 +80,8 @@ export default function Home() {
           </motion.div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-[1.1] drop-shadow-sm">
-            Who needs to take care of a{" "}
-            <span className="rainbow-text">magical management</span>{" "}
-            task?
+            Who needs to{" "}
+            <span className="rainbow-text">lead a BA meeting</span>?
           </h1>
           <p className="mt-6 text-xl text-muted-foreground font-medium max-w-xl mx-auto">
             Let the unicorn oracle decide who gets to be today's hero! 🌈✨
