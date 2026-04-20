@@ -52,77 +52,63 @@
 :root {
   --app-font-sans: 'Nunito', sans-serif;
   --app-font-display: 'Fredoka', sans-serif;
-  
-  --radius: 1.5rem; /* Very bubbly and rounded */
 
-  /* Playful, Warm Light Mode Theme */
-  --background: 42 100% 96%; /* #FFF8E7 - Warm cream */
-  --foreground: 33 29% 27%;  /* #5A4D41 - Soft brown instead of harsh black */
-  
+  --radius: 1.5rem;
+
+  /* ✨ Unicorn Magic Theme ✨ */
+  --background: 270 80% 98%;
+  --foreground: 270 50% 22%;
+
   --card: 0 0% 100%;
-  --card-foreground: 33 29% 27%;
-  --card-border: 42 50% 90%;
-  
-  --popover: 0 0% 100%;
-  --popover-foreground: 33 29% 27%;
-  --popover-border: 42 50% 90%;
+  --card-foreground: 270 50% 22%;
+  --card-border: 280 60% 90%;
 
-  --primary: 348 100% 65%; /* #FF4D70 - Playful Coral/Pink */
+  --popover: 0 0% 100%;
+  --popover-foreground: 270 50% 22%;
+  --popover-border: 280 60% 90%;
+
+  --primary: 280 85% 62%;
   --primary-foreground: 0 0% 100%;
-  
-  --secondary: 43 100% 62%; /* #FFD13B - Cheerful Yellow */
-  --secondary-foreground: 33 29% 27%;
-  
-  --muted: 42 50% 90%;
-  --muted-foreground: 33 15% 50%;
-  
-  --accent: 278 64% 59%; /* #9D4EDD - Fun Purple */
+
+  --secondary: 195 85% 68%;
+  --secondary-foreground: 270 50% 22%;
+
+  --muted: 270 50% 93%;
+  --muted-foreground: 270 25% 52%;
+
+  --accent: 330 95% 65%;
   --accent-foreground: 0 0% 100%;
-  
+
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 42 50% 85%;
-  --input: 42 50% 90%;
-  --ring: 348 100% 65%;
-  
-  --shadow-sm: 0 2px 8px -2px rgba(255, 77, 112, 0.15);
-  --shadow-md: 0 4px 12px -4px rgba(255, 77, 112, 0.2);
-  --shadow-lg: 0 12px 24px -8px rgba(255, 77, 112, 0.25);
-  --shadow-xl: 0 20px 40px -12px rgba(255, 77, 112, 0.3);
+  --border: 270 50% 88%;
+  --input: 270 50% 93%;
+  --ring: 280 85% 62%;
 }
 
-.dark {
-  /* Playful, Warm Dark Mode Theme (Deep purples and warm accents) */
-  --background: 278 40% 15%; /* Deep warm purple */
-  --foreground: 42 100% 96%;
-  
-  --card: 278 35% 20%;
-  --card-foreground: 42 100% 96%;
-  --card-border: 278 30% 30%;
-  
-  --popover: 278 35% 20%;
-  --popover-foreground: 42 100% 96%;
-  --popover-border: 278 30% 30%;
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-  --primary: 348 100% 65%;
-  --primary-foreground: 0 0% 100%;
-  
-  --secondary: 43 100% 62%;
-  --secondary-foreground: 33 29% 27%;
-  
-  --muted: 278 30% 30%;
-  --muted-foreground: 278 20% 70%;
-  
-  --accent: 190 90% 50%; /* Cyan accent for contrast in dark mode */
-  --accent-foreground: 0 0% 100%;
-  
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 100%;
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50%       { opacity: 0.4; transform: scale(0.7) rotate(20deg); }
+}
 
-  --border: 278 30% 30%;
-  --input: 278 30% 30%;
-  --ring: 348 100% 65%;
+.rainbow-text {
+  background: linear-gradient(90deg, #c084fc, #f472b6, #60a5fa, #34d399, #fbbf24, #f472b6, #c084fc);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.twinkle {
+  animation: twinkle 2s ease-in-out infinite;
 }
 
 @layer base {
@@ -131,7 +117,15 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary;
+    @apply font-sans antialiased text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary;
+    background: linear-gradient(135deg,
+      hsl(270, 80%, 97%) 0%,
+      hsl(300, 70%, 96%) 20%,
+      hsl(200, 80%, 96%) 40%,
+      hsl(330, 80%, 97%) 60%,
+      hsl(260, 80%, 97%) 80%,
+      hsl(270, 80%, 97%) 100%);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {

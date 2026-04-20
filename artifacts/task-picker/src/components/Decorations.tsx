@@ -3,94 +3,76 @@ import { motion } from "framer-motion";
 export function Decorations() {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {/* Top right blob */}
+      {/* Dreamy background blobs */}
       <motion.div
-        className="absolute -top-[20%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-secondary/20 blur-3xl mix-blend-multiply"
-        animate={{
-          x: [0, 30, 0],
-          y: [0, 40, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+        className="absolute -top-[20%] -right-[10%] w-[55vw] h-[55vw] rounded-full blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(192,132,252,0.25) 0%, rgba(244,114,182,0.15) 100%)" }}
+        animate={{ x: [0, 30, 0], y: [0, 40, 0], scale: [1, 1.1, 1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
-      
-      {/* Bottom left blob */}
       <motion.div
-        className="absolute -bottom-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-primary/10 blur-3xl mix-blend-multiply"
-        animate={{
-          x: [0, -40, 0],
-          y: [0, -30, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
+        className="absolute -bottom-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(96,165,250,0.2) 0%, rgba(52,211,153,0.15) 100%)" }}
+        animate={{ x: [0, -40, 0], y: [0, -30, 0], scale: [1, 1.2, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
+      <motion.div
+        className="absolute top-[30%] left-[20%] w-[35vw] h-[35vw] rounded-full blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(251,191,36,0.15) 0%, rgba(244,114,182,0.12) 100%)" }}
+        animate={{ x: [0, 50, 0], y: [0, 50, 0], scale: [1, 0.9, 1] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
+
+      {/* Rainbow arc */}
+      <div
+        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[80vw] h-[40vw] rounded-[50%] opacity-10"
+        style={{
+          background: "conic-gradient(from 180deg, #f87171, #fb923c, #fbbf24, #34d399, #60a5fa, #a78bfa, #f472b6, #f87171)",
+          filter: "blur(30px)",
         }}
       />
 
-      {/* Floating accent blob */}
-      <motion.div
-        className="absolute top-[30%] left-[20%] w-[30vw] h-[30vw] rounded-full bg-accent/10 blur-3xl mix-blend-multiply"
-        animate={{
-          x: [0, 50, 0],
-          y: [0, 50, 0],
-          scale: [1, 0.9, 1],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }}
-      />
+      {/* Floating stars */}
+      <Star size={28} color="#c084fc" style={{ top: '10%', left: '8%' }} delay={0} />
+      <Star size={18} color="#f472b6" style={{ top: '18%', left: '30%' }} delay={0.7} />
+      <Star size={22} color="#60a5fa" style={{ top: '12%', right: '20%' }} delay={1.4} />
+      <Star size={16} color="#fbbf24" style={{ top: '35%', right: '8%' }} delay={0.3} />
+      <Star size={24} color="#34d399" style={{ bottom: '25%', left: '10%' }} delay={2} />
+      <Star size={20} color="#a78bfa" style={{ bottom: '15%', right: '25%' }} delay={1} />
+      <Star size={14} color="#f472b6" style={{ bottom: '35%', right: '12%' }} delay={2.5} />
+      <Star size={26} color="#fbbf24" style={{ top: '55%', left: '5%' }} delay={1.8} />
 
-      {/* Playful shapes scattered around */}
-      <FloatingShape type="circle" color="bg-primary/30" size="w-8 h-8" initial={{ top: '15%', left: '15%' }} delay={0} />
-      <FloatingShape type="square" color="bg-secondary/40" size="w-12 h-12" initial={{ top: '25%', right: '20%' }} delay={1.5} />
-      <FloatingShape type="triangle" color="bg-accent/30" size="w-10 h-10" initial={{ bottom: '20%', left: '25%' }} delay={3} />
-      <FloatingShape type="circle" color="bg-primary/20" size="w-16 h-16" initial={{ bottom: '15%', right: '15%' }} delay={4.5} />
+      {/* Floating sparkle dots */}
+      <Sparkle style={{ top: '22%', right: '35%' }} delay={0.5} color="#c084fc" />
+      <Sparkle style={{ bottom: '30%', left: '28%' }} delay={1.2} color="#f472b6" />
+      <Sparkle style={{ top: '65%', right: '18%' }} delay={2.2} color="#60a5fa" />
+      <Sparkle style={{ top: '45%', left: '40%' }} delay={3} color="#fbbf24" />
     </div>
   );
 }
 
-function FloatingShape({ 
-  type, 
-  color, 
-  size, 
-  initial, 
-  delay 
-}: { 
-  type: 'circle' | 'square' | 'triangle'; 
-  color: string; 
-  size: string; 
-  initial: any; 
-  delay: number 
-}) {
-  const shapeClass = 
-    type === 'circle' ? 'rounded-full' : 
-    type === 'square' ? 'rounded-xl rotate-12' : 
-    'rounded-lg [clip-path:polygon(50%_0%,0%_100%,100%_100%)] rotate-45';
-
+function Star({ size, color, style, delay }: { size: number; color: string; style: React.CSSProperties; delay: number }) {
   return (
     <motion.div
-      className={`absolute ${color} ${size} ${shapeClass} backdrop-blur-sm`}
-      style={initial}
-      animate={{
-        y: [-15, 15, -15],
-        rotate: type === 'circle' ? 0 : [0, 15, -15, 0],
-      }}
-      transition={{
-        duration: 5 + Math.random() * 2,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: delay
-      }}
+      className="absolute"
+      style={{ ...style, width: size, height: size }}
+      animate={{ y: [-10, 10, -10], rotate: [0, 180, 360] }}
+      transition={{ duration: 6 + delay, repeat: Infinity, ease: "easeInOut", delay }}
+    >
+      <svg viewBox="0 0 24 24" fill={color} width={size} height={size}>
+        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+      </svg>
+    </motion.div>
+  );
+}
+
+function Sparkle({ style, delay, color }: { style: React.CSSProperties; delay: number; color: string }) {
+  return (
+    <motion.div
+      className="absolute w-3 h-3 rounded-full"
+      style={{ ...style, backgroundColor: color, boxShadow: `0 0 8px 2px ${color}` }}
+      animate={{ scale: [1, 1.8, 1], opacity: [0.8, 0.2, 0.8] }}
+      transition={{ duration: 2 + delay * 0.3, repeat: Infinity, ease: "easeInOut", delay }}
     />
   );
 }
