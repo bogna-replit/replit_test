@@ -92,7 +92,7 @@ export default function Home() {
           </motion.div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-[1.1] drop-shadow-sm">
-            Who needs to take care of a <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient bg-[length:200%_auto]">random management</span> task?
+            Who is going to lead <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient bg-[length:200%_auto]">the next BA meeting</span>?
           </h1>
           <p className="mt-6 text-xl text-muted-foreground font-medium max-w-xl mx-auto">
             Let fate decide who gets to be today's hero. Don't worry, it's completely random and totally fair!
